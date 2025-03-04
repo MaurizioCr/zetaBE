@@ -2,6 +2,7 @@ package MaurizioCrispino.Services;
 
 import MaurizioCrispino.Entities.Cart;
 import MaurizioCrispino.Entities.User;
+import MaurizioCrispino.Exceptions.NotFoundException;
 import MaurizioCrispino.Repositories.CartRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
