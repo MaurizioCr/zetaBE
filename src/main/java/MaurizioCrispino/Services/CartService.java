@@ -31,6 +31,9 @@ public class CartService {
         carrelloRepository.save(cart);
     }
 
+    public void deleteCart(Long cartId) {
+        carrelloRepository.deleteById(cartId);
+    }
 
 
 
