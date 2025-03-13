@@ -1,5 +1,6 @@
 package MaurizioCrispino.Services;
 import  MaurizioCrispino.Entities.User;
+import MaurizioCrispino.Exceptions.NotFoundException;
 import  MaurizioCrispino.Repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,8 +14,12 @@ public class UserService {
         return userRepository.save(user);
     }
 
-    public User findByUsername(String username) {
-        return userRepository.findByUsername(username).orElse(null);
+    public User findById(long id){
+        return userRepository.findById(id).orElseThrow(()->new NotFoundException(id));
+    }
+
+    public User findByUsername(String username){
+        return userRepository.findByUsername(username).orElseThrow(()->new NotFoundException(username));
     }
 
     public User findbyIdAndUpdate(long id, User body) {
