@@ -2,6 +2,7 @@ package MaurizioCrispino.Services;
 
 import MaurizioCrispino.Entities.Cart;
 import MaurizioCrispino.Entities.CartItem;
+import MaurizioCrispino.Entities.Product;
 import MaurizioCrispino.Repositories.CartItemRepository;
 import MaurizioCrispino.Repositories.CartRepository;
 import org.springframework.beans.factory.annotation.Autowired;
