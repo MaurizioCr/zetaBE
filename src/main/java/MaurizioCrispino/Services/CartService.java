@@ -35,6 +35,18 @@ public class CartService {
         carrelloRepository.deleteById(cartId);
     }
 
+    public void updateCartItemQuantity(Long cartId, Long cartItemId, int newQuantity) {
+        Optional<Cart> optionalCart = carrelloRepository.findById(cartId);
+        optionalCart.ifPresent(cart -> {
+            cart.getOggettoCarrellos().stream()
+                    .filter(item -> item.getId().equals(cartItemId))
+                    .findFirst()
+                    .ifPresent(item -> {
+                        item.setQuantity(newQuantity);
+                        carrelloRepository.save(cart);
+                    });
+        });
+    }
 
 
     }
