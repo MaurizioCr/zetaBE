@@ -43,4 +43,18 @@ public class CartItemService {
                 cartItemsRepository.save(oggettoCarrello);
             }
         }
+    public void removeItemFromCart(Long cartId, Long productId) {
+        Cart cart = cartService.getCartById(cartId);
+        Product products = productsService.getProductById(productId);
+        CartItem found = cartItemsRepository.findByCartIdAndProductsId(cartId, productId);
+        cart.setTotalPrice(cart.getTotalPrice() - products.getPrice());
+        cartService.updateCart(cart);
+        if (found.getQuantity() >= 2) {
+            found.setQuantity(found.getQuantity() - 1);
+            cartItemsRepository.save(found);
+        } else {
+            cartItemsRepository.delete(found);
+        }
+
+    }
 }
