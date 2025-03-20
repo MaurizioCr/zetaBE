@@ -38,8 +38,8 @@ public class CartItemService {
                 found.setQuantity(found.getQuantity() + 1);
                 cartItemsRepository.save(found);
 
-            } else {
-                cartItemsRepository.save(oggettoCarrello);
-            }
+        } else {
+            cartItemsRepository.save(oggettoCarrello);
         }
+    }
 }
