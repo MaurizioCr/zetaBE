@@ -9,12 +9,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Service
 public class CartItemService {
 
-    @Service
+
+
         @Autowired
-        private CartItemRepository cartItemsRepository;
+            private CartItemRepository cartItemsRepository;
         @Autowired
         private CartService cartService;
         @Autowired
@@ -25,9 +26,9 @@ public class CartItemService {
 
         public void addItemToCart(Long cartId, Long productId) {
             Cart cart = cartService.getCartById(cartId);
-            Products products = productsService.getProductById(productId);
-            List<OggettoCarrello> oggettoCarrellos = cart.getOggettoCarrellos();
-            OggettoCarrello oggettoCarrello = new OggettoCarrello();
+            Product products = productsService.getProductById(productId);
+            List<CartItem> oggettoCarrellos = cart.getOggettoCarrellos();
+            CartItem oggettoCarrello = new CartItem();
             oggettoCarrello.setCart(cart);
             oggettoCarrello.setProducts(products);
             oggettoCarrello.setQuantity(1);
@@ -38,8 +39,8 @@ public class CartItemService {
                 found.setQuantity(found.getQuantity() + 1);
                 cartItemsRepository.save(found);
 
-        } else {
-            cartItemsRepository.save(oggettoCarrello);
+            } else {
+                cartItemsRepository.save(oggettoCarrello);
+            }
         }
-    }
 }

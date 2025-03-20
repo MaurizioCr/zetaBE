@@ -36,7 +36,7 @@ public class CartItem {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        OggettoCarrello oggettoCarrello = (OggettoCarrello) o;
+        CartItem oggettoCarrello = (CartItem) o;
         return Objects.equals(cart, oggettoCarrello.cart) && Objects.equals(products, oggettoCarrello.products);
     }
 
